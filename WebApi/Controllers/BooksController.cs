@@ -10,7 +10,7 @@ using WebApi.DomainModel.Model;
 using WebApi.Persistence;
 
 namespace WebApi.Controllers; 
-[Route("products")]
+[Route("products/books")]
 [ApiController]
 public class BooksController : ControllerBase {
 
@@ -32,7 +32,7 @@ public class BooksController : ControllerBase {
 
    // Get book by Id
    // http://localhost:5100/products/books/{id}
-   [HttpGet("books/{id}")]
+   [HttpGet("{id}")]
    public ActionResult<Book?> GetBookById(Guid id) {
       switch (_repository.FindById(id)) {
          case Book book: return Ok(book);
@@ -42,7 +42,7 @@ public class BooksController : ControllerBase {
 
    // Create a new book
    // http://localhost:5100/products/books
-   [HttpPost("books")]
+   [HttpPost("")]
    public ActionResult<Book> CreateBook(
       [FromBody] Book book
    ) {
@@ -64,7 +64,7 @@ public class BooksController : ControllerBase {
    
    // Update a book
    // http://localhost:5100/products/books/{id}
-   [HttpPut("books/{id:Guid}")] 
+   [HttpPut("{id:Guid}")] 
    public ActionResult<Book> UpdateBook(
       [FromRoute] Guid id,
       [FromBody]  Book updBook
@@ -88,7 +88,7 @@ public class BooksController : ControllerBase {
 
    // Delete a book
    // http://localhost:5100/products/books/{id}
-   [HttpDelete("books/{id:Guid}")]
+   [HttpDelete("{id:Guid}")]
    public ActionResult<Book> DeleteBook(
       [FromRoute] Guid id
    ) {
