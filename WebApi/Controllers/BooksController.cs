@@ -33,7 +33,7 @@ public class BooksController : ControllerBase {
    // Get book by Id
    // http://localhost:5100/products/books/{id}
    [HttpGet("books/{id}")]
-   public ActionResult<BooksController> GetBookById(Guid id) {
+   public ActionResult<Book?> GetBookById(Guid id) {
       switch (_repository.FindById(id)) {
          case Book book: return Ok(book);
          case null:      return NotFound($"Owner with given Id not found");
