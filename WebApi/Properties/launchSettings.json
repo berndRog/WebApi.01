@@ -12,9 +12,9 @@
     "WebApi": {
       "commandName": "Project",
       "dotnetRunMessages": true,
-      "launchBrowser": true,
-      "launchUrl": "banking/owners",
-      "applicationUrl": "http://localhost:5010",
+      "launchBrowser": false,
+      "launchUrl": "",
+      "applicationUrl": "http://localhost:5100",
       "environmentVariables": {
          "ASPNETCORE_ENVIRONMENT": "Development",
          "ComPlus_ReadyToRun": "0"
